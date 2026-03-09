@@ -2,28 +2,30 @@ import os
 
 class Config(object):
     # Telegram Bot ka token
-    BOT_TOKEN = "7896379697:AAGX__ZjhrbBSdjeUIu6crWkmI6GgWCekbo"
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
     # Telegram API ki ID
-    API_ID = 27030443
-    API_HASH = "da842bsdfijfhbeuf39edf0ac74b6e00c43c91"
-    ADMIN_ID = [6697397532]
+    API_ID = int(os.environ.get("API_ID", "0"))
+    # Telegram API ki Hash
+    API_HASH = os.environ.get("API_HASH", "")
+    # Admin user IDs (comma-separated)
+    ADMIN_ID = [int(x.strip()) for x in os.environ.get("ADMIN_ID", "0").split(",") if x.strip()]
     # MongoDB database ka URL
-    DB_URL = "mongodb+srv://username:password@dddd.octnw1p.mongodb.net/"
+    DB_URL = os.environ.get("DB_URL", "")
     # Database ka naam
-    DB_NAME = "MY_BOT_DB"
+    DB_NAME = os.environ.get("DB_NAME", "MY_BOT_DB")
     # Text log channel ki ID
-    TXT_LOG = -1002667681315
+    TXT_LOG = int(os.environ.get("TXT_LOG", "0"))
     # Authentication log channel ki ID
-    AUTH_LOG = -1002472481034
+    AUTH_LOG = int(os.environ.get("AUTH_LOG", "0"))
     # Hit log channel ki ID
-    HIT_LOG = -1002472481034
+    HIT_LOG = int(os.environ.get("HIT_LOG", "0"))
     # DRM dump channel ki ID
-    DRM_DUMP = -1002472481034
+    DRM_DUMP = int(os.environ.get("DRM_DUMP", "0"))
     # Main channel ki ID
-    CHANNEL = -1002361507681
+    CHANNEL = int(os.environ.get("CHANNEL", "0"))
     # Channel ka link
-    CH_URL = "https://t.me/+VbMs1OavyItjNjFl"
+    CH_URL = os.environ.get("CH_URL", "")
     # Bot ke owner ka Telegram link
-    OWNER = "https://t.me/jattprab"
+    OWNER = os.environ.get("OWNER", "")
     # Thumbnail image ka URL
-    THUMB_URL = "https://telegra.ph/file/example-thumb-image.jpg" #Replace by with your Thumb URL
+    THUMB_URL = os.environ.get("THUMB_URL", "")
